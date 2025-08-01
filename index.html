@@ -2,25 +2,190 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Max's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>qpbd</title>
+  <style>
+    body {
+      background-image: url('https://media.discordapp.net/attachments/1344579212618629120/1400654560107827200/image.png?ex=688d6cb6&is=688c1b36&hm=1b332436140f2e3dc190d553e50f40e4fd3396c03de907cb007937bf38bfe49b&=&format=webp&quality=lossless&width=1707&height=859');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      cursor: url('https://cdn-icons-png.flaticon.com/512/892/892634.png') 16 16, auto;
+    }
+    .left-block {
+      background-color: rgba(21, 27, 33, 0.95);
+      width: 350px;
+      min-height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+      border-right: 2px solid #30363d;
+      overflow-y: auto;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .left-block header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .left-block header img.avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #58a6ff;
+    }
+    .left-block header h1 {
+      color: white;
+      margin: 0;
+      font-size: 1.6em;
+    }
+    .left-block a {
+      color: #1E90FF;
+      text-decoration: none;
+    }
+    .left-block a:hover {
+      text-decoration: underline;
+    }
+    .left-block section {
+      margin-top: 30px;
+    }
+    .left-block footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #bbb;
+    }
+    #clock {
+      font-size: 0.9em;
+      color: #7ee787;
+      font-family: monospace;
+      text-align: left;
+      padding-top: 20px;
+    }
+    .right-space {
+      flex-grow: 1;
+    }
+    /* GIF overlay styles */
+    #gif-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: transparent;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+    #gif-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+      background: transparent;
+    }
+    /* Button styling */
+    #gif-button {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 11000;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: 1px solid #555;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    #gif-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Max Smith</h1>
-    <p>Cybersecurity & Game Dev Student</p>
-  </header>
+  <div class="left-block">
+    <div>
+      <header>
+        <img src="https://media.discordapp.net/attachments/1344579212618629120/1400357537861075084/image.png?ex=688d00d6&is=688baf56&hm=e33f2020f1536629bec128227f4fc980ab83b268e0b10c07cb914ea053deca6b&=&format=webp&quality=lossless&width=1167&height=783" alt="Avatar" class="avatar" />
+        <div>
+          <h1>Max Smith</h1>
+          <p>(qpbd / qpbdbdqp / necro)</p>
+          <p><em>&gt;college (coming soon...)&lt;</em></p>
+        </div>
+      </header>
+      <section>
+        <h2> PROJECTS:</h2>
+        <ul>
+          <li><a href="https://www.example.org" target="_blank">n/a</a></li>
+          <li><a href="https://www.example.org" target="_blank">Discord Bot</a></li>
+          <li><a href="artwork.html" target="_blank">Experimental Mixed Media</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>BLOG:</h3>
+        <ul>
+          <li><a href="blog.html" target="_blank">Blog</a></li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <p>Contact: <a href="mailto:N/A@gmail.com">N/A@gmail.com</a></p>
+      <div id="clock">Loading time...</div>
+    </footer>
+  </div>
+  <div class="right-space"></div>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>🔐 Password Cracker Simulator (Python)</li>
-      <li>🕹️ 2D Platformer (Unity C#)</li>
-    </ul>
-  </section>
+  <!-- GIF overlay -->
+  <div id="gif-overlay">
+    <img id="gif-image" src="https://media.tenor.com/I4gnkRLnV0MAAAAC/confetti-celebrate.gif" alt="Fullscreen GIF" />
+  </div>
 
-  <footer>
-    <p>Contact: max@email.com</p>
-  </footer>
+  <!-- Button to toggle GIF -->
+  <button id="gif-button">⚡</button>
+
+  <script>
+    function updateClock() {
+      const options = {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
+      document.getElementById('clock').textContent = 'USA (EST): ' + timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const gifButton = document.getElementById('gif-button');
+    const gifOverlay = document.getElementById('gif-overlay');
+    const gifImage = document.getElementById('gif-image');
+
+    gifButton.addEventListener('click', () => {
+      // Reset GIF src to restart animation
+      gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
+
+      // Show the overlay
+      gifOverlay.style.display = 'flex';
+
+      // Hide the overlay after 3 seconds
+      setTimeout(() => {
+        gifOverlay.style.display = 'none';
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
