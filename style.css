@@ -1,23 +1,64 @@
-body {
-  background-color: #0d1117;
+<style>
+  body {
+    background-image: url('https://media.discordapp.net/attachments/1344579212618629120/1400654560107827200/image.png?ex=688d6cb6&is=688c1b36&hm=1b332436140f2e3dc190d553e50f40e4fd3396c03de907cb007937bf38bfe49b&=&format=webp&quality=lossless&width=1707&height=859');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    cursor: url('https://cdn-icons-png.flaticon.com/512/892/892634.png') 16 16, auto;
+  }
+/* ------------------------------------------------------------------------ */
+.left-block {
+  background-color: rgba(21, 27, 33, 0.95);
+  width: 350px;            /* sidebar width */
+  min-height: 100vh;       /* full height */
+  padding: 30px;
+  box-sizing: border-box;
+  border-right: 2px solid #30363d;
+  overflow-y: auto;        /* scroll if content too tall */
   color: #c9d1d9;
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  font-family: monospace, sans-serif;
 }
-
-header {
+/* ------------------------------------------------------------------------ */
+.left-block header {
   border-bottom: 2px solid #30363d;
   margin-bottom: 20px;
 }
-
-h1 {
+.left-block h1 {
   color: #58a6ff;
+  margin-bottom: 0;
 }
-
-ul {
+.left-block h2 {
+  margin-top: 40px;
+  color: #f0f6fc;
+}
+.left-block ul {
   list-style: none;
   padding-left: 0;
 }
-li {
+.left-block li {
   margin: 10px 0;
 }
+.left-block a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+.left-block a:hover {
+  text-decoration: underline;
+}
+.left-block footer {
+  margin-top: 40px;
+  border-top: 1px solid #30363d;
+  padding-top: 10px;
+}
+/* ------------------------------------------------------------------------ */
+.right-space {
+  flex-grow: 1;
+}
+
+
