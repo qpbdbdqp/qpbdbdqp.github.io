@@ -1,9 +1,21 @@
+<!--
+Hello! Each "----" will describe the content below it. It states the code language, then a simple description of what that slice of code does or how it works. 
+(⚠️) will indicate, code that is standard and should not be tampered with  
+(👁️) will indicate, visual changes (color/size/position/etc)  
+(🤖) will indicate, an interactive object (clock/buttons/videos/etc)  
+(✍️) will indicate, text only (titles/subtitles/paragraph/etc)
+-->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Specifies code type, and language. ]-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Presents characters (letters/symbols) correctly on a webpage. ]-->
   <meta charset="UTF-8" />
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Sets the top page title shown in the browser tab. ] -->
   <title>qpbd</title>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Embeds the CSS styles that change the visual webpage. ] -->
   <style>
+    /* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (BROKEN)] */
     body {
       background-image: url('https://raw.githubusercontent.com/qpbdbdqp/qpbdbdqp.github.io/refs/heads/main/images/wallpaper.png');
       background-size: cover;
@@ -17,7 +29,7 @@
       display: flex;
       cursor: url('https://cdn-icons-png.flaticon.com/512/892/892634.png') 16 16, auto;
     }
-
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Displays left column panel with background & padding, Layout and scroll behaviors. ] */
     .left-block {
       background-color: rgba(21, 27, 33, 0.95);
       width: 350px;
@@ -31,13 +43,14 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles the header (user info), aligns avatar and text. ] */
     .left-block header {
       display: flex;
       align-items: center;
       gap: 15px;
       margin-bottom: 20px;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles avatar image. ] */
     .left-block header img.avatar {
       width: 50px;
       height: 50px;
@@ -45,26 +58,32 @@
       object-fit: cover;
       border: 2px solid #58a6ff;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [✍️ Styles text next to avatar. ] */
     .left-block header h1 {
       color: white;
       margin: 0;
       font-size: 1.6em;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [👁️ Styles links in  left panel. ] */
     .left-block a {
       color: #1E90FF;
       text-decoration: none;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Presents underline on hover regarding links. ] */
     .left-block a:hover {
       text-decoration: underline;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Creates spacing to each section block ( Projects/blog/etc ). ] */
     .left-block section {
       margin-top: 30px;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [✍️ Styles text at bottom of left panel. ] */
     .left-block footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #bbb;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Styles live clock text in the bottom left. ] */
     #clock {
       font-size: 0.9em;
       color: #7ee787;
@@ -72,10 +91,11 @@
       text-align: left;
       padding-top: 20px;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Fills whats left of the right side of the screen that is not covered with left pannel. ] */
     .right-space {
       flex-grow: 1;
     }
-    /* GIF overlay styles */
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles gif overlay detected with bottom right button. ] */
     #gif-overlay {
       position: fixed;
       top: 0;
@@ -88,6 +108,7 @@
       align-items: center;
       z-index: 10000;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ sizes GIF in overlay, makes it unclickable. ] */
     #gif-overlay img {
       width: 100%;
       height: 100%;
@@ -96,7 +117,7 @@
       pointer-events: none;
       background: transparent;
     }
-    /* Button styling */
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles button that triggers GIF overlay. ] */
     #gif-button {
       position: fixed;
       bottom: 15px;
@@ -111,15 +132,17 @@
       cursor: pointer;
       user-select: none;
     }
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Adds hover effect to GIF button. ] */
     #gif-button:hover {
       background-color: rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
 <body>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [📦 Page layout: left panel for content and navigation. ] -->
   <div class="left-block">
     <div>
-
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ User info section under (name/nickname/other) ] -->
       <header>
         <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/logo.png?raw=true" alt="Avatar" class="avatar" />
         <div>
@@ -128,6 +151,7 @@
           <p><em>&gt;college (coming soon...)&lt;</em></p>
         </div>
       </header>
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ subject with links. ] -->
       <section>
         <h2> PROJECTS:</h2>
         <ul>
@@ -136,29 +160,35 @@
           <li><a href="artwork.html" target="_blank">Experimental Mixed Media</a></li>
         </ul>
       </section>
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ subject 2 with links. ] -->
       <section>
         <h3>BLOG:</h3>
         <ul>
           <li><a href="blog.html" target="_blank">Blog</a></li>
         </ul>
       </section>
-
     </div>
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ resume link. ] -->
+       <a href="RESUME Max Smith.pdf" target="_blank">View My Resume</a>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Bottom of left collum with email link + live clock. ] -->
     <footer>
-      <p>Contact: <a href="mailto:maxsmith33417@gmail.com">maxsmith33417@gmail.com/(discord: qpbd)</a></p>
+      <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
+      <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
+
       <div id="clock">Loading time...</div>
     </footer>
   </div>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Fill space beside left block, stays empty. ] -->
   <div class="right-space"></div>
-  <!-- GIF overlay -->
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Invisible block that contains the GIF overlay before visible. ] -->
   <div id="gif-overlay">
     <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
   </div>
-
-  <!-- Button to toggle GIF -->
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Clickable button to activate GIF overlay, can be changed to other things. ] -->
   <button id="gif-button">click me</button>
-
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- JS - [🤖 Live clock and button interaction starts. ] -->
   <script>
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Locates current time in EST,  updates the #clock element every real second. ] */
     function updateClock() {
       const options = {
         timeZone: 'America/New_York',
@@ -170,21 +200,18 @@
       const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
       document.getElementById('clock').textContent = 'USA (EST): ' + timeString;
     }
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Forces clock to live update. ] */
     setInterval(updateClock, 1000);
     updateClock();
-
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Button click logic. ] */
     const gifButton = document.getElementById('gif-button');
     const gifOverlay = document.getElementById('gif-overlay');
     const gifImage = document.getElementById('gif-image');
-
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Restarts gif in 3 seconds. ] */
     gifButton.addEventListener('click', () => {
-      // Reset GIF src to restart animation
       gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
-
-      // Show the overlay
       gifOverlay.style.display = 'flex';
-
-      // Hide the overlay after 3 seconds
       setTimeout(() => {
         gifOverlay.style.display = 'none';
       }, 3000);
