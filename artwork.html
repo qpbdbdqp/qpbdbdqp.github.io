@@ -17,7 +17,7 @@
       height: 100vh;
       display: flex;
     }
-    /* ------------------------------------------------------------------------ */
+
     body {
       margin: 0;
       padding: 40px;
@@ -27,6 +27,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    header p a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     .gallery {
@@ -55,7 +61,6 @@
       display: block;
     }
 
-    /* Modal (popup) */
     .modal {
       position: fixed;
       top: 0; left: 0;
@@ -98,15 +103,14 @@
   <h1>Experimental Mixed Media</h1>
   <h2>drag image to new tab to see in full</h2>
   <div class="gallery">
-    <!-- Repeat for 8 thumbnails -->
     <div class="thumbnail" onclick="openModal(1)">
       <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/60485841_RbE0Bn1lnyWiMDt.png?1675385877" alt="Artwork 2" />     
     </div>
     <div class="thumbnail" onclick="openModal(2)">
-      <img src="https://media.discordapp.net/attachments/1344579212618629120/1401032838471745607/image.png?ex=688ecd02&is=688d7b82&hm=05331e85199b95af150320c9042d75411dc62867a2a07c8faadec039f9ee7dc6&=&format=webp&quality=lossless&width=1167&height=783" alt="Artwork 3" />     
+      <img src="https://scontent-bos5-1.xx.fbcdn.net/v/t1.15752-9/525039304_727553896720685_2429927475593357468_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=LXMxa7eUxu8Q7kNvwGRlthI&_nc_oc=AdkAoatbO0IVa3hAgvYJIAaAihYlmYAF0NiS9u_4l1VcPuioTFJWw_4GRC3vE6Jr1vEKWb6jZmP0bq3ov3XkLkaX&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-bos5-1.xx&oh=03_Q7cD2wF5TLKL7m1lRJqn6Fy7_3SAFVSQXaXVFruzcRmHbWwlTg&oe=68B5223C" alt="Artwork 3" />     
     </div>
     <div class="thumbnail" onclick="openModal(3)">
-      <img src="https://picsum.photos/id/1015/300/200" alt="Artwork 4" />     
+      <img src="https://media.discordapp.net/attachments/1344579212618629120/1401019614938398771/44FDA493-DC21-4A2B-83FB-19B5BFDA5613.jpg?ex=688ec0b1&is=688d6f31&hm=a447504c9b9e4e40eff889b886196bee1d3705ba8e0b036d71b22870c71f1b68&=&format=webp&width=644&height=859" alt="Artwork 4" />     
     </div>
     <div class="thumbnail" onclick="openModal(4)">
       <img src="https://picsum.photos/id/1016/300/200" alt="Artwork 5" />     
@@ -122,7 +126,6 @@
     </div>
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -135,7 +138,7 @@
       "...",     
       "Sketched digitally using the autodesk sketchbook program and physical drawing tablet - colored, later edited in paint.net.",     
       "Created using line tools on microsoft paint, later edited in paint.net.",    
-      "Fifth entry - experimental lighting.",     
+      "Photograph of the sky I took with an Iphone - then printed using a canon mini printer. Placing the print back into the printer, I then re-printing an image I had also taken with my Iphone of my eyeball on the top layer.",     
       "Sixth piece - bold color play.",     
       "Seventh artwork - dynamic contrast.",     
       "Eighth design - detailed textures."     
@@ -150,7 +153,6 @@
       document.getElementById("modal").style.display = "none";
     }
 
-    // Optional: close modal on outside click
     document.getElementById("modal").addEventListener("click", function (e) {
       if (e.target === this) closeModal();
     });
@@ -158,4 +160,3 @@
 
 </body>
 </html>
-
