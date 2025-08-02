@@ -1,0 +1,20 @@
+This is a step by step of commands to type in (git bash) when the "update website" button is not working
+--------------------------------------------------
+>>>Open Git Bash
+
+>>>Go to your repo directory, paste below line and press enter:
+cd /c/Users/Max/Desktop/qpbdbdqp.github.io
+
+
+>>>Get remote changes first (sync), paste below line and press enter:
+git pull origin main --rebase
+
+
+>>>Upload (push) your changes, paste below line and press enter:
+git push origin main
+--------------------------------------------------
+
+📜Full command chain📜
+cd /c/Users/Max/Desktop/qpbdbdqp.github.io
+git pull origin main --rebase
+git push origin main
