@@ -20,7 +20,7 @@
     }
 
     header {
-      padding: 20px;
+      padding: 30px;
       background: rgba(0, 0, 0, 0.6);
     }
 
@@ -48,10 +48,25 @@
     <p><a href="index.html">&larr; Back to main page</a></p>
   </header>
 
-  <section>
-    <iframe 
-      src="https://docs.google.com/document/d/e/2PACX-1vQDh8tfwOVIzP0hJVGWI57H9CRtFnNNlgddt3Bd1MJPdgio5pUZHHUGhOdk9uNbi3Cq_ZrPgkqWEzIX/pub?embedded=true">
-    </iframe>
-  </section>
+<style>
+  section {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    height: 100vh;           /* optional: full viewport height */
+  }
+
+  iframe {
+    width: 80%;   /* optional: control width */
+    height: 700px; /* optional: control height */
+    border: none;
+  }
+</style>
+
+<section>
+  <iframe 
+    src="https://docs.google.com/document/d/e/2PACX-1vQDh8tfwOVIzP0hJVGWI57H9CRtFnNNlgddt3Bd1MJPdgio5pUZHHUGhOdk9uNbi3Cq_ZrPgkqWEzIX/pub?embedded=true">
+  </iframe>
+</section>
 </body>
 </html>
