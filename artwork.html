@@ -1,12 +1,23 @@
+<!--
+Hello! Each "----" will describe the content below it. It states the code language, then a simple description of what that slice of code does or how it works. 
+(⚠️) will indicate, code that is standard and should not be tampered with  
+(👁️) will indicate, visual changes (color/size/position/etc)  
+(🤖) will indicate, an interactive object (clock/buttons/videos/etc)  
+(✍️) will indicate, text only (titles/subtitles/paragraph/etc)
+-->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Specifies code type, and language. ]-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Presents characters (letters/symbols) correctly on a webpage. ]-->
   <meta charset="UTF-8" />
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Sets browser tab title. ]-->
   <title>qpbd/artwork</title>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Visual layout and gallery display styling. ]-->
   <style>
-   /* ------------------------------------------------------------------------ */
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Sets background image, font, and page layout. ]*/
     body {
-      background-image: url('https://media.discordapp.net/attachments/1344579212618629120/1401122277734744158/image.png?ex=688f204e&is=688dcece&hm=a21b683faab3542bf619439f5d62940f9d942cbbc1a1be62927b24012e628e14&=&format=webp&quality=lossless&width=1684&height=859');
+      background-image: url('https://media.discordapp.net/attachments/1401385607720206336/1401386434954268692/image.png?ex=68901652&is=688ec4d2&hm=160720d7bcae6994f60dbf4e018b1db3e38aea7dae2509b8c2ed8805eaaaf30e&=&format=webp&quality=lossless&width=1684&height=859');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -15,34 +26,36 @@
       font-family: Arial, sans-serif;
       margin: 0;
       height: 100vh;
-      display: flex;
-    }
-
-    body {
-      margin: 0;
       padding: 40px;
-      font-family: Arial, sans-serif;
       background-color: #111;
-      color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles header section, adds margin top for spacing from top of page. ]*/
+    header {
+      margin-top: 100px;
+    }
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles link inside header: white text, bold, no underline, no margin needed here.]*/
     header p a {
       color: white;
       font-weight: bold;
       text-decoration: none;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Gallery grid system (auto-fit tiles) with margin-top to push gallery further down. ]*/
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
       max-width: 900px;
       width: 100%;
+      margin-top: 150px;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Thumbnail styles (border, radius, hover effect). ]*/
     .thumbnail {
       cursor: pointer;
       border: 2px solid #333;
@@ -61,6 +74,7 @@
       display: block;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Modal popup layout (hidden until toggled). ]*/
     .modal {
       position: fixed;
       top: 0; left: 0;
@@ -72,6 +86,7 @@
       z-index: 1000;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Modal content box styling (centered/ dark theme). ]*/
     .modal-content {
       background-color: #222;
       padding: 20px;
@@ -82,6 +97,7 @@
       color: #ddd;
     }
 
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Modal close button (top right corner). ]*/
     .close-btn {
       position: absolute;
       top: 10px; right: 15px;
@@ -96,65 +112,24 @@
   </style>
 </head>
 <body>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Navigation header (back link to index). ]-->
   <header>
     <p><a href="index.html">&larr; Back to main page</a></p>
   </header>
 
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Thumbnail gallery container for artworks. ]-->
   <div class="gallery">
     <div class="thumbnail" onclick="openModal(1)">
-      <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/60485841_RbE0Bn1lnyWiMDt.png?1675385877" alt="Artwork 2" />     
+      <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/60485841_RbE0Bn1lnyWiMDt.png?1675385877" alt="Artwork 2" />
     </div>
     <div class="thumbnail" onclick="openModal(2)">
-      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/logo.png?raw=true" alt="Artwork 3" />     
+      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/logo.png?raw=true" alt="Artwork 3" />
     </div>
     <div class="thumbnail" onclick="openModal(3)">
-      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/mixed-meidia-1.png?raw=true" alt="Artwork 4" />     
+      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/mixed-meidia-1.png?raw=true" alt="Artwork 4" />
     </div>
     <div class="thumbnail" onclick="openModal(4)">
-      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/mixed-media-5.png?raw=true" alt="Artwork 5" />     
+      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/mixed-media-5.png?raw=true" alt="Artwork 5" />
     </div>
     <div class="thumbnail" onclick="openModal(5)">
-      <img src="https://picsum.photos/id/1020/300/200" alt="Artwork 6" />     
-    </div>
-    <div class="thumbnail" onclick="openModal(6)">
-      <img src="https://picsum.photos/id/1024/300/200" alt="Artwork 7" />     
-    </div>
-    <div class="thumbnail" onclick="openModal(7)">
-      <img src="https://picsum.photos/id/1025/300/200" alt="Artwork 8" />     
-    </div>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <p id="modal-description">Artwork description will appear here.</p>
-    </div>
-  </div>
-
-  <script>
-    const descriptions = [   
-      "...",     
-      "Sketched digitally using the autodesk sketchbook program and physical drawing tablet - colored, later edited in paint.net.",     
-      "Created using line tools on microsoft paint, later edited in paint.net.",    
-      "Photograph of the sky I took with an Iphone - then printed using a canon mini printer. Placing the print back into the printer, I then re-printing an image I had also taken with my Iphone of my eyeball on the top layer.",     
-      "Photograph of the sky I took with an Iphone - then printed using a canon mini printer. Placing the print back into the printer, I then re-printing an image I had also taken with my Iphone of my friend's eyeball on the top layer.",     
-      "Seventh artwork - dynamic contrast.",     
-      "Eighth design - detailed textures."     
-    ];
-
-    function openModal(index) {
-      document.getElementById("modal-description").textContent = descriptions[index];
-      document.getElementById("modal").style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    document.getElementById("modal").addEventListener("click", function (e) {
-      if (e.target === this) closeModal();
-    });
-  </script>
-
-</body>
-</html>
+      <img src="https://picsum.photos/id/1020/300/200" alt="Artwork

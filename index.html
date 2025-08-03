@@ -15,74 +15,121 @@ Hello! Each "----" will describe the content below it. It states the code langua
   <title>qpbd</title>
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Embeds the CSS styles that change the visual webpage. ] -->
   <style>
-    /* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (BROKEN)] */
+    /* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (BROKEN) ] (ADDED) */
+    html, body { /* (ADDED) */
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: auto; /* (ADDED) */
+      min-height: 300vh; /* (ADDED) */
+      overflow-x: hidden; /* (ADDED) */
+      overflow-y: auto; /* (ADDED) */
+    }
+
     body {
-      background-image: url('https://raw.githubusercontent.com/qpbdbdqp/qpbdbdqp.github.io/refs/heads/main/images/wallpaper.png');
-      background-size: cover;
+      /* Remove old single background */
+      /* background-image: url('https://media.discordapp.net/attachments/1401385607720206336/1401386434954268692/image.png?ex=68901652&is=688ec4d2&hm=160720d7bcae6994f60dbf4e018b1db3e38aea7dae2509b8c2ed8805eaaaf30e&=&format=webp&quality=lossless&width=1684&height=859'); */
+      /* background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      background-attachment: fixed;
+      background-attachment: fixed; */
       color: white;
       font-family: Arial, sans-serif;
-      margin: 0;
-      height: 100vh;
-      display: flex;
       cursor: url('https://cdn-icons-png.flaticon.com/512/892/892634.png') 16 16, auto;
+      display: block; 
     }
-    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Displays left column panel with background & padding, Layout and scroll behaviors. ] */
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Background fade layers (ADDED/ANIMATION BACKGROUND FADE ON SCROLL)] */
+    .bg1, .bg2 {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 0.3s linear;
+      pointer-events: none; /* (ADDED/ANIMATION PREVENT BLOCKING) */
+      z-index: -10; /* (ADDED/ANIMATION KEEP BEHIND CONTENT) */
+    }
+    .bg1 {
+      background-image: url('https://media.discordapp.net/attachments/1344579212618629120/1401121273597263953/image.png?ex=688fc81f&is=688e769f&hm=4596ba8553f2aab2e78a77f87b043562b88dcc46fff3d33fa2ab4ec932c808e3&=&format=webp&quality=lossless&width=1684&height=859');
+      opacity: 1;
+      z-index: -11; /* Behind bg2 */
+    }
+    .bg2 {
+      background-image: url('https://media.discordapp.net/attachments/1344579212618629120/1401121547825184768/image.png?ex=688fc860&is=688e76e0&hm=4630d22fe83f371a047146eb0794c5b315ab6a4995fae179a4ce527df0b6ea2c&=&format=webp&quality=lossless&width=1684&height=859');
+      opacity: 0;
+      z-index: -10;
+    }
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Displays left column panel with background & padding, Layout and scroll behaviors. ] (ADDED) */
     .left-block {
       background-color: rgba(21, 27, 33, 0.95);
-      width: 350px;
-      min-height: 100vh;
+      width: 700px; 
       padding: 30px;
       box-sizing: border-box;
-      border-right: 2px solid #30363d;
-      overflow-y: auto;
+      border: 2px solid #30363d; /* all around border */
       color: #c9d1d9;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: relative; /* allow scroll */
+      top: 150px;       
+      left: 50%;        
+      transform: translateX(-50%); /* (ADDED) */
+      z-index: 1;    /* (ADDED) */
+      border-radius: 12px; /* ( visual touch) */
+      display: flex; /* horizontal layout */
+      align-items: center;
+      justify-content: flex-start; /* (ADDED) */
+      gap: 20px; /* spacing between avatar and text */
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles the header (user info), aligns avatar and text. ] */
     .left-block header {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 20px;
+      margin: 0; /* (ADDED) removed bottom margin */
     }
-    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles avatar image. ] */
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles avatar image. ] (ADDED) */
     .left-block header img.avatar {
-      width: 50px;
-      height: 50px;
+      top: 150px;  
+      width: 90px; /* (ADDED - made larger) */
+      height: 90px; /* (ADDED) */
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #58a6ff;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [✍️ Styles text next to avatar. ] */
     .left-block header h1 {
       color: white;
       margin: 0;
-      font-size: 1.6em;
+      font-size: 3em;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [👁️ Styles links in  left panel. ] */
     .left-block a {
       color: #1E90FF;
       text-decoration: none;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Presents underline on hover regarding links. ] */
     .left-block a:hover {
       text-decoration: underline;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Creates spacing to each section block ( Projects/blog/etc ). ] */
     .left-block section {
       margin-top: 30px;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [✍️ Styles text at bottom of left panel. ] */
     .left-block footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #bbb;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Styles live clock text in the bottom left. ] */
     #clock {
       font-size: 0.9em;
@@ -91,10 +138,12 @@ Hello! Each "----" will describe the content below it. It states the code langua
       text-align: left;
       padding-top: 20px;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Fills whats left of the right side of the screen that is not covered with left pannel. ] */
     .right-space {
-      flex-grow: 1;
+      height: 2500px; /* (ADDED) ensures long scroll area */
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles gif overlay detected with bottom right button. ] */
     #gif-overlay {
       position: fixed;
@@ -108,6 +157,7 @@ Hello! Each "----" will describe the content below it. It states the code langua
       align-items: center;
       z-index: 10000;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ sizes GIF in overlay, makes it unclickable. ] */
     #gif-overlay img {
       width: 100%;
@@ -117,6 +167,7 @@ Hello! Each "----" will describe the content below it. It states the code langua
       pointer-events: none;
       background: transparent;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles button that triggers GIF overlay. ] */
     #gif-button {
       position: fixed;
@@ -132,6 +183,7 @@ Hello! Each "----" will describe the content below it. It states the code langua
       cursor: pointer;
       user-select: none;
     }
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Adds hover effect to GIF button. ] */
     #gif-button:hover {
       background-color: rgba(0, 0, 0, 0.8);
@@ -139,54 +191,55 @@ Hello! Each "----" will describe the content below it. It states the code langua
   </style>
 </head>
 <body>
+  <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Background fade layers (ADDED/ANIMATION BACKGROUND FADE ON SCROLL)] -->
+  <div class="bg1"></div>
+  <div class="bg2"></div>
+
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [📦 Page layout: left panel for content and navigation. ] -->
   <div class="left-block">
-    <div>
-      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ User info section under (name/nickname/other) ] -->
-      <header>
-        <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/logo.png?raw=true" alt="Avatar" class="avatar" />
-        <div>
-          <h1>Max Smith</h1>
-          <p>(qpbd / qpbdbdqp / necro)</p>
-          <p><em>&gt;college (coming soon...)&lt;</em></p>
-        </div>
-      </header>
-      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ subject with links. ] -->
-      <section>
-        <h2> PROJECTS:</h2>
-        <ul>
-          <li><a href="https://github.com/qpbdbdqp/qpbdbdqp.github.io/tree/master" target="_blank">My Code Snippets</a></li>
-          <li><a href="https://www.example.org" target="_blank">Discord Bot</a></li>
-          <li><a href="artwork.html" target="_blank">Experimental Mixed Media</a></li>
-        </ul>
-      </section>
-      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ subject 2 with links. ] -->
-      <section>
-        <h3>BLOG:</h3>
-        <ul>
-          <li><a href="blog.html" target="_blank">Blog</a></li>
-⁻ᴵⁿᵗʳᵒᵈᵘᶜᵗᶦᵒⁿ ⁻ᴵⁿˢᵖᶦʳᵃᵗᶦᵒⁿ ⁻ᵀʰᶦˢ ʷᵉᵇˢᶦᵗᵉ ⁻ᴰᶦˢᶜᵒʳᵈ ᴮᵒᵗˢ ⁽ᵐᵒʳᵉ ᵗᵒ ᶜᵒᵐᵉ⁾
-        </ul>
-      </section>
-    </div>
-      <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ resume link. ] -->
-       <a href="RESUME Max Smith.pdf" target="_blank">View My Resume</a>
-    <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Bottom of left collum with email link + live clock. ] -->
-    <footer>
-      <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
-      <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
-
-      <div id="clock">Loading time...</div>
-    </footer>
+    <header>
+      <img src="https://github.com/qpbdbdqp/qpbdbdqp.github.io/blob/main/images/logo.png?raw=true" alt="Avatar" class="avatar" />
+      <div>
+        <h1>Max Smith</h1>
+        <p>(qpbd / qpbdbdqp / necro)</p>
+        <p><em>&gt;college (coming soon...)&lt;</em></p>
+        <section>
+          <h2> PROJECTS:</h2>
+          <ul>
+            <li><a href="https://github.com/qpbdbdqp/qpbdbdqp.github.io/tree/master" target="_blank">Code Snippets</a></li>
+            <li><a href="https://www.example.org" target="_blank">Discord Bot</a></li>
+            <li><a href="artwork.html" target="_blank">Experimental Mixed Media</a></li>
+            <li><a href="exmple.com" target="_blank">3D Models</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>BLOG:</h3>
+          <ul>
+            <li><a href="blog.html" target="_blank">Blog</a></li>
+            ⁻ᴵⁿᵗʳᵒᵈᵘᶜᵗᶦᵒⁿ ⁻ᴵⁿˢᵖᶦʳᵃᵗᶦᵒⁿ ⁻ᵀʰᶦˢ ʷᵉᵇˢᶦᵗᵉ ⁻ᴰᶦˢᶜᵒʳᵈ ᴮᵒᵗˢ ⁽ᵐᵒʳᵉ ᵗᵒ ᶜᵒᵐᵉ⁾
+          </ul>
+        </section>
+        <a href="RESUME Max Smith.pdf" target="_blank">View My Resume</a>
+        <footer>
+          <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
+          <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
+          <div id="clock">Loading time...</div>
+        </footer>
+      </div>
+    </header>
   </div>
+
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Fill space beside left block, stays empty. ] -->
   <div class="right-space"></div>
+
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Invisible block that contains the GIF overlay before visible. ] -->
   <div id="gif-overlay">
     <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
   </div>
+
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Clickable button to activate GIF overlay, can be changed to other things. ] -->
   <button id="gif-button">click me</button>
+
   <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- JS - [🤖 Live clock and button interaction starts. ] -->
   <script>
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Locates current time in EST,  updates the #clock element every real second. ] */
@@ -205,10 +258,12 @@ Hello! Each "----" will describe the content below it. It states the code langua
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Forces clock to live update. ] */
     setInterval(updateClock, 1000);
     updateClock();
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Button click logic. ] */
     const gifButton = document.getElementById('gif-button');
     const gifOverlay = document.getElementById('gif-overlay');
     const gifImage = document.getElementById('gif-image');
+
     /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Restarts gif in 3 seconds. ] */
     gifButton.addEventListener('click', () => {
       gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
@@ -216,6 +271,15 @@ Hello! Each "----" will describe the content below it. It states the code langua
       setTimeout(() => {
         gifOverlay.style.display = 'none';
       }, 3000);
+    });
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [ADDED/ANIMATION BACKGROUND FADE ON SCROLL] */
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const opacity = Math.min(scrollTop / maxScroll, 1);
+      document.querySelector('.bg1').style.opacity = 1 - opacity;
+      document.querySelector('.bg2').style.opacity = opacity;
     });
   </script>
 </body>
