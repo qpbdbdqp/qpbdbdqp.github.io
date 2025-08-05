@@ -1,11 +1,3 @@
-<!--
-Hello! Each "----" will describe the content below it. It states the code language, then a simple description of what that slice of code does or how it works. 
-(⚠️) will indicate, code that is standard and should not be tampered with  
-(👁️) will indicate, visual changes (color/size/position/etc)  
-(🤖) will indicate, an interactive object (clock/buttons/videos/etc)  
-(✍️) will indicate, text only (titles/subtitles/paragraph/etc)
--->
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Specifies code type, and language. ]-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,425 +9,372 @@ Hello! Each "----" will describe the content below it. It states the code langua
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-23EX80D1S8');
   </script>
+
   <style>
-/* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (FIXED) ] (ADDED) */
-html, body { /* (ADDED) */
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  height: auto; /* corrected typo from 'eight' */
-  min-height: 300vh; /* (ADDED) */
-  overflow-x: hidden; /* (ADDED) */
-  overflow-y: auto; /* (ADDED) */
-}
-
-body {
-  /* Remove old single background */
-  /* background-image: url('https://media.discordapp.net/attachments/1401385607720206336/1401386434954268692/image.png?ex=68901652&is=688ec4d2&hm=160720d7bcae6994f60dbf4e018b1db3e38aea7dae2509b8c2ed8805eaaaf30e&=&format=webp&quality=lossless&width=1684&height=859'); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-attachment: fixed; */  /* fixed broken comment */
-  color: white;
-  font-family: Arial, sans-serif;
-  cursor: url('images/LOGO/MOUSE.png') 16 16, auto; /* custom cursor with hotspot */
-  display: block; 
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Background fade layers (ANIMATION BACKGROUND FADE ON SCROLL)] */
-.bg1, .bg2 {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: opacity 0.3s linear;
-  pointer-events: none; /* (ADDED/ANIMATION PREVENT BLOCKING) */
-  z-index: -10; /* (ADDED/ANIMATION KEEP BEHIND CONTENT) */
-}
-.bg1 {
-  background-image: url('images/WALLPAPER/HOME PAGE-qpbd.png');
-  opacity: 1;
-  z-index: -11; /* Behind bg2 */
-}
-.bg2 {
-  background-image: url('images/WALLPAPER/spyro.png');
-  opacity: 0;
-  z-index: -10;
-}
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Displays column with background & padding, Layout and scroll behaviors. ] (ADDED) */
-.left-block {
-  background-color: rgba(98, 188, 219, 0.72);
-  width: 700px; 
-  padding: 30px;
-  box-sizing: border-box;
-  border: 2px solid #FFFFFF; /* all around border */
-  color: #FFFFFF;
-  position: relative; /* allow scroll */
-  top: 150px;       
-  left: 50%;        
-  transform: translateX(-50%); /* (ADDED) */
-  z-index: 1;    /* (ADDED) */
-  border-radius: 12px; /* ( visual touch) */
-  /* Removed flex styles to fix box layout */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-start; */
-  /* gap: 20px; */
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles the header (user info), aligns avatar and text. ] */
-.left-block header {
-  display: flex;
-  flex-direction: column; /* changed so avatar and content stack nicely */
-  align-items: center; /* center horizontally */
-  gap: 15px;
-  margin: 0; /* (ADDED) removed bottom margin */
-}
-
-/* Adjust header avatar and info layout */
-.left-block header > img.avatar {
-  width: 90px; /* (ADDED - made larger) */
-  height: 90px; /* (ADDED) */
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #FFFFFF;
-}
-
-/* Wrap the info text next to avatar in a div */
-.left-block header > div {
-  text-align: center;
-}
-
-.left-block header h1 {
-  color: #FFFFFF;
-  margin: 0;
-  font-size: 3em;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [👁️ Styles links in  left panel. ] */
-.left-block a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Presents underline on hover regarding links. ] */
-.left-block a:hover {
-  text-decoration: underline;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Creates spacing to each section block ( Projects/blog/etc ). ] */
-.left-block section {
-  margin-top: 30px;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [✍️ Styles text at bottom of left panel. ] */
-.left-block footer {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #FFFFFF;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [🤖 Styles live clock text in the bottom left. ] */
-#clock {
-  font-size: 1.3em;
-  color: #E8FCEC;
-  font-family: bold;
-  text-align: left;
-  padding-top: 20px;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Fills whats left of the right side of the screen that is not covered with left pannel. ] */
-.right-space {
-  height: 2500px; /* (ADDED) ensures long scroll area */
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles gif overlay detected with bottom right button. ] */
-#gif-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ sizes GIF in overlay, makes it unclickable. ] */
-#gif-overlay img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
-  pointer-events: none;
-  background: transparent;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles button that triggers GIF overlay. ] */
-#gif-button {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 11000;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: 1px solid #FFFFFF;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Adds hover effect to GIF button. ] */
-#gif-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */
-/* 👁️ Styles for Live Chat container and elements */
-#chat-container {
-  margin: 50px auto 0 auto;
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
-  background-color: rgba(0,0,0,0.4);
-  border: 1px solid #FFFFFF;
-  border-radius: 10px;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-#chat-container h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 1.8em;
-}
-
-#chat-messages {
-  height: 200px;
-  overflow-y: auto;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 1em;
-  color: white;
-  word-wrap: break-word;
-}
-
-#chat-inputs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-#username, #message-input {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  flex: 1 1 auto;
-  font-size: 1em;
-}
-
-#username {
-  max-width: 150px;
-  min-width: 120px;
-}
-
-#message-input {
-  flex-grow: 2;
-}
-
-#send-button {
-  padding: 8px 15px;
-  background-color: #269bdb;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  flex-shrink: 0;
-}
-
-#send-button:hover {
-  background-color: #1a6fa5;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: auto;
+      min-height: 300vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      color: white;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: url('images/LOGO/MOUSE.png') 16 16, auto;
+    }
+    body {
+      background-color: #00000099; /* fallback background */
+    }
+    .bg1, .bg2 {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 0.3s linear;
+      pointer-events: none;
+      z-index: -10;
+    }
+    .bg1 {
+      background-image: url('images/WALLPAPER/HOME PAGE-qpbd.png');
+      opacity: 1;
+      z-index: -11;
+    }
+    .bg2 {
+      background-image: url('images/WALLPAPER/spyro.png');
+      opacity: 0;
+      z-index: -10;
+    }
+    .left-block {
+      background-color: rgba(98, 188, 219, 0.72);
+      width: 700px;
+      padding: 30px;
+      box-sizing: border-box;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+      position: relative;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      border-radius: 12px;
+    }
+    .left-block header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    .left-block header img.avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #FFFFFF;
+    }
+    .left-block header div {
+      flex: 1 1 auto;
+      min-width: 280px;
+    }
+    .left-block header h1 {
+      color: #FFFFFF;
+      margin: 0;
+      font-size: 3em;
+    }
+    .left-block a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .left-block a:hover {
+      text-decoration: underline;
+    }
+    .left-block section {
+      margin-top: 30px;
+    }
+    .left-block footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+    #clock {
+      font-size: 1.3em;
+      color: #E8FCEC;
+      font-family: bold;
+      text-align: left;
+      padding-top: 20px;
+    }
+    .right-space {
+      height: 2500px;
+    }
+    #gif-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: transparent;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+    #gif-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+      background: transparent;
+    }
+    #gif-button {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 11000;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: 1px solid #FFFFFF;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    #gif-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    #chat-container {
+      margin: 50px auto 0 auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      background-color: rgba(0,0,0,0.4);
+      border: 1px solid #FFFFFF;
+      border-radius: 10px;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #chat-container h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.8em;
+    }
+    #chat-messages {
+      height: 200px;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: white;
+      word-wrap: break-word;
+    }
+    #chat-inputs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #username, #message-input {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+    #username {
+      max-width: 150px;
+      min-width: 120px;
+      flex: 0 0 auto;
+    }
+    #message-input {
+      flex-grow: 1;
+      min-width: 200px;
+    }
+    #send-button {
+      padding: 8px 15px;
+      background-color: #269bdb;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    #send-button:hover {
+      background-color: #1a6fa5;
+    }
   </style>
 </head>
 <body>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Background fade layers (ADDED/ANIMATION BACKGROUND FADE ON SCROLL)] -->
-<div class="bg1"></div>
-<div class="bg2"></div>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [📦 Everything within centre box. ] -->
-<div class="left-block">
-  <header>
-    <img src="images/LOGO/LOGO TWIST.png" alt="Avatar" class="avatar" />
-    <div>
-      <h1>𝕄𝕒𝕩 𝕊𝕞𝕚𝕥𝕙</h1>
-      <p>[𝘲𝘱𝘣𝘥 / 𝘲𝘱𝘣𝘥𝘣𝘥𝘲𝘱 / 𝘮𝘢𝘹 𝘴𝘮𝘪𝘵𝘩]</p>
-      <p><a href="blog.html" target="_blank">🔗BLOG✧</a></p>
-      <p>━━━━━━━━━━</p>
-      <h2>𝐏𝐑𝐎𝐉𝐄𝐂𝐓𝐒:</h2>
-      <ul>
-        <li><a href="code.html" target="_blank">🔗Code Explained (cheat sheet)</a></li>
-        <li><a href="artwork.html" target="_blank">🔗Experimental Mixed Media</a></li>
-        <li><a href="https://github.com/qpbdbdqp/qpbdbdqp.github.io/tree/master" target="_blank">🔗Code Snippets</a></li>
-        <li><a href="https://www.example.org" target="_blank">🔗Discord Bot</a></li>
-        <li><a href="exmple.com" target="_blank">🔗3D Models</a></li>
-      </ul>
-      <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
 
-      <!-- Live Chat Container -->
-      <div id="chat-container">
-        <h2>💬 Live Chat</h2>
-        <div id="chat-messages"></div>
-        <div id="chat-inputs">
-          <input type="text" id="username" placeholder="Your name" autocomplete="off" />
-          <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
-          <button id="send-button">Send</button>
+  <div class="bg1"></div>
+  <div class="bg2"></div>
+
+  <div class="left-block">
+    <header>
+      <img src="images/LOGO/LOGO TWIST.png" alt="Avatar" class="avatar" />
+      <div>
+        <h1>𝕄𝕒𝕩 𝕊𝕞𝕚𝕥𝕙</h1>
+        <p>[𝘲𝘱𝘣𝘥 / 𝘲𝘱𝘣𝘥𝘣𝘥𝘲𝘱 / 𝘮𝘢𝘹 𝘴𝘮𝘪𝘵𝘩]</p>
+        <p><a href="blog.html" target="_blank">🔗BLOG✧</a></p>
+        <p>━━━━━━━━━━</p>
+        <h2>𝐏𝐑𝐎𝐉𝐄𝐂𝐓𝐒:</h2>
+        <ul>
+          <li><a href="code.html" target="_blank">🔗Code Explained (cheat sheet)</a></li>
+          <li><a href="artwork.html" target="_blank">🔗Experimental Mixed Media</a></li>
+          <li><a href="https://github.com/qpbdbdqp/qpbdbdqp.github.io/tree/master" target="_blank">🔗Code Snippets</a></li>
+          <li><a href="https://www.example.org" target="_blank">🔗Discord Bot</a></li>
+          <li><a href="exmple.com" target="_blank">🔗3D Models</a></li>
+        </ul>
+        <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
+
+        <!-- Live Chat Container -->
+        <div id="chat-container">
+          <h2>💬 Live Chat</h2>
+          <div id="chat-messages"></div>
+          <div id="chat-inputs">
+            <input type="text" id="username" placeholder="Your name" autocomplete="off" />
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+            <button id="send-button">Send</button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <footer>
-    <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-    <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
-    <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
-    <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
-    <div id="clock">Loading time...</div>
-  </footer>
-</div>
+    <footer>
+      <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+      <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
+      <p>Contact: <a href="mailto:maxsmith33417@gmail.com">maxsmith33417@gmail.com</a></p>
+      <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
+      <div id="clock">Loading time...</div>
+    </footer>
+  </div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Fill space beside left block, stays empty. ] -->
-<div class="right-space"></div>
+  <div class="right-space"></div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Invisible block that contains the GIF overlay before visible. ] -->
-<div id="gif-overlay">
-  <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
-</div>
+  <div id="gif-overlay">
+    <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
+  </div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [🤖 Clickable button to activate GIF overlay, can be changed to other things. ] -->
-<button id="gif-button">click me</button>
+  <button id="gif-button">click me</button>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- JS - [🤖 Live clock and button interaction starts. ] -->
-<script>
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Locates current time in EST,  updates the #clock element every real second. ] */
-function updateClock() {
-  const options = {
-    timeZone: 'America/New_York',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: true
-  };
-  const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
-  document.getElementById('clock').textContent = 'My current time (usa/est)->  ' + timeString;
-}
+  <!-- Firebase scripts must load BEFORE your code uses firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js" defer></script>
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Forces clock to live update. ] */
-setInterval(updateClock, 1000);
-updateClock();
+  <!-- Your scripts - placed at end for correct load order -->
+  <script>
+    // Wait until Firebase SDK scripts load, then run your code
+    window.addEventListener('load', () => {
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Button click logic. ] */
-const gifButton = document.getElementById('gif-button');
-const gifOverlay = document.getElementById('gif-overlay');
-const gifImage = document.getElementById('gif-image');
+      // Firebase config (your actual config)
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
+        authDomain: "qpbd-chat.firebaseapp.com",
+        databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
+        projectId: "qpbd-chat",
+        storageBucket: "qpbd-chat.firebasestorage.app",
+        messagingSenderId: "915896204829",
+        appId: "1:915896204829:web:985156253c14bbbf5d10f4",
+        measurementId: "G-J9JMWQVHXM"
+      };
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [🤖 Restarts gif in 3 seconds. ] */
-gifButton.addEventListener('click', () => {
-  gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
-  gifOverlay.style.display = 'flex';
-  setTimeout(() => {
-    gifOverlay.style.display = 'none';
-  }, 3000);
-});
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* JS - [ADDED/ANIMATION BACKGROUND FADE ON SCROLL] */
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const maxScroll = document.body.scrollHeight - window.innerHeight;
-  const opacity = Math.min(scrollTop / maxScroll, 1);
-  document.querySelector('.bg1').style.opacity = 1 - opacity;
-  document.querySelector('.bg2').style.opacity = opacity;
-});
-</script>
+      // Initialize Firebase app
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- Firebase JS SDK and Live Chat Script -->
-<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
-<script>
-  // Firebase configuration (your config)
-  const firebaseConfig = {
-    apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
-    authDomain: "qpbd-chat.firebaseapp.com",
-    databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
-    projectId: "qpbd-chat",
-    storageBucket: "qpbd-chat.firebasestorage.app",
-    messagingSenderId: "915896204829",
-    appId: "1:915896204829:web:985156253c14bbbf5d10f4",
-    measurementId: "G-J9JMWQVHXM"
-  };
+      const chatMessages = document.getElementById('chat-messages');
+      const messageInput = document.getElementById('message-input');
+      const usernameInput = document.getElementById('username');
+      const sendButton = document.getElementById('send-button');
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+      // Update clock every second
+      function updateClock() {
+        const options = {
+          timeZone: 'America/New_York',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        };
+        const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
+        document.getElementById('clock').textContent = 'My current time (usa/est)->  ' + timeString;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
 
-  const chatMessages = document.getElementById('chat-messages');
-  const messageInput = document.getElementById('message-input');
-  const usernameInput = document.getElementById('username');
-  const sendButton = document.getElementById('send-button');
+      // Send message to Firebase Realtime DB
+      function sendMessage() {
+        const message = messageInput.value.trim();
+        const username = usernameInput.value.trim() || "Anonymous";
+        if (message) {
+          db.ref("messages").push({
+            name: username,
+            message: message,
+            timestamp: Date.now()
+          });
+          messageInput.value = '';
+        }
+      }
 
-  // Send message to Firebase
-  function sendMessage() {
-    const message = messageInput.value.trim();
-    const username = usernameInput.value.trim() || "Anonymous";
-    if (message) {
-      db.ref("messages").push({
-        name: username,
-        message: message,
-        timestamp: Date.now()
+      sendButton.addEventListener('click', sendMessage);
+
+      messageInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
       });
-      messageInput.value = '';
-    }
-  }
 
-  sendButton.addEventListener('click', sendMessage);
+      usernameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          messageInput.focus();
+        }
+      });
 
-  // Optional: Send message on Enter key in message input
-  messageInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      sendMessage();
-    }
-  });
+      // Listen for new messages and append them to chat
+      db.ref("messages").on("child_added", (snapshot) => {
+        const msg = snapshot.val();
+        const div = document.createElement("div");
+        const time = new Date(msg.timestamp);
+        const timeString = time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        div.innerHTML = `<strong>${msg.name}</strong> [${timeString}]: ${msg.message}`;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
 
-  usernameInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      messageInput.focus();
-    }
-  });
+      // GIF button logic
+      const gifButton = document.getElementById('gif-button');
+      const gifOverlay = document.getElementById('gif-overlay');
+      const gifImage = document.getElementById('gif-image');
 
-  // Listen for new messages in Firebase and display them
-  db.ref("messages").on("child_added", function(snapshot) {
-    const msg = snapshot.val();
-    const div = document.createElement("div");
-    const time = new Date(msg.timestamp);
-    const timeString = time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    div.innerHTML = `<strong>${msg.name}</strong> [${timeString}]: ${msg.message}`;
-    chatMessages.appendChild(div);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  });
-</script>
+      gifButton.addEventListener('click', () => {
+        gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
+        gifOverlay.style.display = 'flex';
+        setTimeout(() => {
+          gifOverlay.style.display = 'none';
+        }, 3000);
+      });
+
+      // Background fade on scroll
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        const opacity = Math.min(scrollTop / maxScroll, 1);
+        document.querySelector('.bg1').style.opacity = 1 - opacity;
+        document.querySelector('.bg2').style.opacity = opacity;
+      });
+
+    });
+  </script>
 </body>
 </html>
