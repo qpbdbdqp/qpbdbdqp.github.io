@@ -20,7 +20,6 @@ Hello! Each "----" will describe the content below it. It states the code langua
 
     gtag('config', 'G-23EX80D1S8');
   </script>
-  <!-- Your existing CSS and other head content here -->
   <style>
 /* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (FIXED) ] (ADDED) */
 html, body { /* (ADDED) */
@@ -92,14 +91,14 @@ body {
 /* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles the header (user info), aligns avatar and text. ] */
 .left-block header {
   display: flex;
-  align-items: center; /* changed from 'top' to 'center' for proper vertical alignment */
+  flex-direction: column; /* changed so avatar and content stack nicely */
+  align-items: center; /* center horizontally */
   gap: 15px;
   margin: 0; /* (ADDED) removed bottom margin */
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Styles avatar image. ] (ADDED) */
-.left-block header img.avatar {
-  top: 20px;  
+/* Adjust header avatar and info layout */
+.left-block header > img.avatar {
   width: 90px; /* (ADDED - made larger) */
   height: 90px; /* (ADDED) */
   border-radius: 50%;
@@ -107,7 +106,11 @@ body {
   border: 2px solid #FFFFFF;
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------*/ /* CSS - [✍️ Styles text next to avatar. ] */
+/* Wrap the info text next to avatar in a div */
+.left-block header > div {
+  text-align: center;
+}
+
 .left-block header h1 {
   color: #FFFFFF;
   margin: 0;
@@ -292,16 +295,16 @@ body {
         <li><a href="exmple.com" target="_blank">🔗3D Models</a></li>
       </ul>
       <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
-    </div>
 
-    <!-- Live Chat Container -->
-    <div id="chat-container">
-      <h2>💬 Live Chat</h2>
-      <div id="chat-messages"></div>
-      <div id="chat-inputs">
-        <input type="text" id="username" placeholder="Your name" autocomplete="off" />
-        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
-        <button id="send-button">Send</button>
+      <!-- Live Chat Container -->
+      <div id="chat-container">
+        <h2>💬 Live Chat</h2>
+        <div id="chat-messages"></div>
+        <div id="chat-inputs">
+          <input type="text" id="username" placeholder="Your name" autocomplete="off" />
+          <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+          <button id="send-button">Send</button>
+        </div>
       </div>
     </div>
   </header>
@@ -386,7 +389,7 @@ window.addEventListener('scroll', () => {
   };
 
   // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
   const chatMessages = document.getElementById('chat-messages');
