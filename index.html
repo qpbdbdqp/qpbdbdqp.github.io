@@ -21,15 +21,7 @@ Hello! Each "----" will describe the content below it. It states the code langua
     gtag('config', 'G-23EX80D1S8');
   </script>
   <!-- Your existing CSS and other head content here -->
-</head>
-
-</script>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [⚠️ Presents characters (letters/symbols) correctly on a webpage. ]-->
-<meta charset="UTF-8" />
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [✍️ Sets the top page title shown in the browser tab. ] -->
-<title>qpbd</title>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Embeds the CSS styles that change the visual webpage. ] -->
-<style>
+  <style>
 /* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (FIXED) ] (ADDED) */
 html, body { /* (ADDED) */
   margin: 0;
@@ -203,7 +195,80 @@ body {
 #gif-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-</style>
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+/* 👁️ Styles for Live Chat container and elements */
+#chat-container {
+  margin: 50px auto 0 auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  background-color: rgba(0,0,0,0.4);
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#chat-container h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+#chat-messages {
+  height: 200px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: white;
+  word-wrap: break-word;
+}
+
+#chat-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#username, #message-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  flex: 1 1 auto;
+  font-size: 1em;
+}
+
+#username {
+  max-width: 150px;
+  min-width: 120px;
+}
+
+#message-input {
+  flex-grow: 2;
+}
+
+#send-button {
+  padding: 8px 15px;
+  background-color: #269bdb;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+#send-button:hover {
+  background-color: #1a6fa5;
+}
+  </style>
 </head>
 <body>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ --> <!-- HTML - [👁️ Background fade layers (ADDED/ANIMATION BACKGROUND FADE ON SCROLL)] -->
@@ -228,7 +293,19 @@ body {
       </ul>
       <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
     </div>
+
+    <!-- Live Chat Container -->
+    <div id="chat-container">
+      <h2>💬 Live Chat</h2>
+      <div id="chat-messages"></div>
+      <div id="chat-inputs">
+        <input type="text" id="username" placeholder="Your name" autocomplete="off" />
+        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+        <button id="send-button">Send</button>
+      </div>
+    </div>
   </header>
+
   <footer>
     <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
     <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
@@ -289,6 +366,73 @@ window.addEventListener('scroll', () => {
   document.querySelector('.bg1').style.opacity = 1 - opacity;
   document.querySelector('.bg2').style.opacity = opacity;
 });
+</script>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Firebase JS SDK and Live Chat Script -->
+<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
+<script>
+  // Firebase configuration (your config)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
+    authDomain: "qpbd-chat.firebaseapp.com",
+    databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
+    projectId: "qpbd-chat",
+    storageBucket: "qpbd-chat.firebasestorage.app",
+    messagingSenderId: "915896204829",
+    appId: "1:915896204829:web:985156253c14bbbf5d10f4",
+    measurementId: "G-J9JMWQVHXM"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const chatMessages = document.getElementById('chat-messages');
+  const messageInput = document.getElementById('message-input');
+  const usernameInput = document.getElementById('username');
+  const sendButton = document.getElementById('send-button');
+
+  // Send message to Firebase
+  function sendMessage() {
+    const message = messageInput.value.trim();
+    const username = usernameInput.value.trim() || "Anonymous";
+    if (message) {
+      db.ref("messages").push({
+        name: username,
+        message: message,
+        timestamp: Date.now()
+      });
+      messageInput.value = '';
+    }
+  }
+
+  sendButton.addEventListener('click', sendMessage);
+
+  // Optional: Send message on Enter key in message input
+  messageInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  });
+
+  usernameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      messageInput.focus();
+    }
+  });
+
+  // Listen for new messages in Firebase and display them
+  db.ref("messages").on("child_added", function(snapshot) {
+    const msg = snapshot.val();
+    const div = document.createElement("div");
+    const time = new Date(msg.timestamp);
+    const timeString = time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    div.innerHTML = `<strong>${msg.name}</strong> [${timeString}]: ${msg.message}`;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  });
 </script>
 </body>
 </html>
