@@ -1,9 +1,10 @@
 This is a step by step of commands to type in (git bash) when the "update website" button is not working
+(pushes everything to live update and in correct folders)
 --------------------------------------------------
 >>>Open Git Bash
 
 >>>Go to your repo directory, paste below line and press enter:
-cd /c/Users/Max/Desktop/qpbdbdqp.github.io
+cd /c/Users/(name)/Desktop/(website)
 
 
 >>>Get remote changes first (sync), paste below line and press enter:
@@ -15,6 +16,7 @@ git push origin main
 --------------------------------------------------
 
 📜Full command chain📜
-cd /c/Users/Max/Desktop/qpbdbdqp.github.io
+cd /c/Users/(name)/Desktop/(website)
 git pull origin main --rebase
+
 git push origin main
