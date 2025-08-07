@@ -224,12 +224,67 @@ body {
 #delete-chat-btn:hover {
   background-color: #a22;
 }
+<!----------------------------------------------------------------------------EYE-->
 </style>
 </head>
 <body>
 <div class="bg1"></div>
 <div class="bg2"></div>
 <div class="left-block">
+<style>
+    /* Fix the eye in top-left */
+    .eye {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border: 2px solid #96FEF9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pupil {
+      width: 20px;
+      height: 20px;
+      background: #000;
+      border-radius: 50%;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<div class="eye">
+  <div class="pupil" id="pupil"></div>
+</div>
+
+<script>
+  const eye = document.querySelector('.eye');
+  const pupil = document.getElementById('pupil');
+
+  document.addEventListener('mousemove', (e) => {
+    const eyeRect = eye.getBoundingClientRect();
+    const eyeCenterX = eyeRect.right + eyeRect.width / 2;
+    const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+    const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+    const radius = 10; // how far the pupil can move
+
+    const pupilX = Math.cos(angle) * radius;
+    const pupilY = Math.sin(angle) * radius;
+
+    pupil.style.left = `${pupilX}px`;
+    pupil.style.top = `${pupilY}px`;
+  });
+</script>
+
+</body>
+</html>
+<!----------------------------------------------------------------------------BOX-->
 <header>
 <img src="images/LOGO/1main.png" alt="Avatar" class="avatar" />
 <div>
@@ -246,7 +301,6 @@ body {
 <li><a href="exmple.com" target="_blank">🔗3D Models</a></li>
 </ul>
 <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
-</div>
 </header>
 <footer>
 <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
@@ -255,7 +309,7 @@ body {
 <div id="clock">Loading time...</div>
 </footer>
 </div>
-
+<!----------------------------------------------------------------------------CHAT CONTAINER-->
 <!-- Chat container below .left-block -->
 <div id="chat-container">
 <h3>Live Chat</h3>
@@ -364,7 +418,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 function deleteChat() {
-  if (confirm("Are you sure you want to delete all chat messages? This cannot be undone.")) {
+  if (confirm("You're really about to delete all that?")) {
     remove(chatRef).then(() => {
       chatMessagesDiv.innerHTML = "";
       chatMessagesDiv.textContent = "Chat cleared.";
@@ -375,6 +429,8 @@ function deleteChat() {
 }
 window.deleteChat = deleteChat;
 </script>
+<!----------------------------------------------------------------------------CHAT CONTAINER-->
+ 
 
 </body>
 </html>
