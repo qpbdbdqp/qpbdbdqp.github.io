@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-
-  <!-- FAVICON -->
-  <link rel="icon" href="images/LOGO/main.png" type="image/png" sizes="96x96" />
-  <link rel="shortcut icon" href="images/LOGO/main.png" type="image/png" />
-  <!-- Optional: Apple Touch Icon for iOS -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/LOGO/main.png" />
-  <!-- Optional: Web app manifest (add site.webmanifest if you create one) -->
-  <!-- <link rel="manifest" href="site.webmanifest" /> -->
-  <meta name="apple-mobile-web-app-title" content="qpbd" />
-  <!-- END FAVICON -->
-
-  <title>qpbd</title>
-
-  <style>
-/* ------------------------------------------------------------------------------------------------------------------------------------------  */ /* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (BROKEN) ] (ADDED) */
-html, body { /* (ADDED) */
+<meta charset="UTF-8" />
+<!-- FAVICON -->
+<link rel="icon" href="images/LOGO/main.png" type="image/png" sizes="96x96" />
+<link rel="shortcut icon" href="images/LOGO/main.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/LOGO/main.png" />
+<meta name="apple-mobile-web-app-title" content="qpbd" />
+<title>qpbd</title>
+<style>
+/* ------------------------------------------------------------------------------------------------------------------------------------------  */
+/* CSS - [👁️ Displays a background png, indicates font size and family, sizes, and a cursor (BROKEN) ] (ADDED) */
+html, body {
 margin: 0;
 padding: 0;
 font-family: Arial, sans-serif;
@@ -26,7 +20,6 @@ min-height: 300vh; /* (ADDED) */
 overflow-x: hidden; /* (ADDED) */
 overflow-y: auto; /* (ADDED) */
 }
-
 body {
 /* Remove old single background */
 /* background-image: url('https://media.discordapp.net/attachments/1401385607720206336/1401386434954268692/image.png?ex=68901652&is=688ec4d2&hm=160720d7bcae6994f60dbf4e018b1db3e38aea7dae2509b8c2ed8805eaaaf30e&=&format=webp&quality=lossless&width=1684&height=859'); */
@@ -38,10 +31,10 @@ color: white;
 font-family: Arial, sans-serif;
 /* ✅ FIXED CURSOR */
 cursor: url('images/LOGO/MOUSE.png'), auto;
-display: block; 
+display: block;
 }
-
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */ /* CSS - [👁️ Background fade layers (ANIMATION BACKGROUND FADE ON SCROLL)] */
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+/* CSS - [👁️ Background fade layers (ANIMATION BACKGROUND FADE ON SCROLL)] */
 .bg1, .bg2 {
 position: fixed;
 top: 0;
@@ -53,17 +46,14 @@ background-repeat: no-repeat;
 background-position: center;
 z-index: -10;
 }
-
 .bg1 {
 background-image: url('images/WALLPAPER/HOME PAGE-qpbd.png');
 opacity: 1;
 }
-
 .bg2 {
 background-image: url('images/WALLPAPER/spyro.png');
 opacity: 0;
 }
-
 .left-block {
 background-color: rgba(98, 188, 219, 0.72);
 width: 700px;
@@ -78,14 +68,12 @@ transform: translateX(-50%);
 z-index: 1;
 border-radius: 12px;
 }
-
 .left-block header {
 display: flex;
 align-items: center;
 gap: 15px;
 margin: 0;
 }
-
 .left-block header img.avatar {
 top: 20px;
 width: 90px;
@@ -94,32 +82,26 @@ border-radius: 50%;
 object-fit: cover;
 border: 2px solid #FFFFFF;
 }
-
 .left-block header h1 {
 color: #FFFFFF;
 margin: 0;
 font-size: 3em;
 }
-
 .left-block a {
 color: #FFFFFF;
 text-decoration: none;
 }
-
 .left-block a:hover {
 text-decoration: underline;
 }
-
 .left-block section {
 margin-top: 30px;
 }
-
 .left-block footer {
 margin-top: 40px;
 font-size: 0.9em;
 color: #FFFFFF;
 }
-
 #clock {
 font-size: 1.3em;
 color: #E8FCEC;
@@ -127,11 +109,9 @@ font-family: bold;
 text-align: left;
 padding-top: 20px;
 }
-
 .right-space {
 height: 2500px;
 }
-
 #gif-overlay {
 position: fixed;
 top: 0;
@@ -144,7 +124,6 @@ justify-content: center;
 align-items: center;
 z-index: 10000;
 }
-
 #gif-overlay img {
 width: 100%;
 height: 100%;
@@ -153,7 +132,6 @@ user-select: none;
 pointer-events: none;
 background: transparent;
 }
-
 #gif-button {
 position: fixed;
 bottom: 15px;
@@ -168,16 +146,66 @@ font-size: 14px;
 cursor: pointer;
 user-select: none;
 }
-
 #gif-button:hover {
 background-color: rgba(0, 0, 0, 0.8);
+}
+/* Chat styles */
+#chat-container {
+margin-top: 30px;
+background: #B9F9F1;
+color: #000;
+border-radius: 8px;
+padding: 10px;
+max-height: 300px;
+overflow-y: auto;
+font-family: Arial, sans-serif;
+}
+#chat-messages {
+max-height: 250px;
+overflow-y: auto;
+padding: 5px;
+border: 1px solid #888;
+background: #fff;
+border-radius: 6px;
+}
+#chat-messages .msg {
+margin-bottom: 6px;
+padding: 5px 8px;
+border-radius: 5px;
+background: #e0e0e0;
+}
+#chat-messages .msg strong {
+color: #333;
+}
+#chat-inputs {
+margin-top: 10px;
+display: flex;
+gap: 10px;
+}
+#chat-inputs input[type="text"] {
+flex-grow: 1;
+padding: 8px;
+font-size: 1em;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+#chat-inputs button {
+padding: 8px 15px;
+font-size: 1em;
+border: none;
+background-color: #3a8;
+color: white;
+border-radius: 4px;
+cursor: pointer;
+}
+#chat-inputs button:hover {
+background-color: #277;
 }
 </style>
 </head>
 <body>
 <div class="bg1"></div>
 <div class="bg2"></div>
-
 <div class="left-block">
 <header>
 <img src="images/LOGO/1main.png" alt="Avatar" class="avatar" />
@@ -197,98 +225,29 @@ background-color: rgba(0, 0, 0, 0.8);
 <p>[ᴘʀᴏᴊᴇᴄᴛꜱ ᴀʀᴇ ᴀ ᴡᴏʀᴋ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ ᴀɴᴅ ᴀʀᴇ ꜱᴜʙᴊᴇᴄᴛ ᴛᴏ ᴄʜᴀɴɢᴇ]</p>
 </div>
 </header>
+<!-- CHAT CONTAINER -->
+<div id="chat-container">
+<h3>Live Chat</h3>
+<div id="chat-messages">Loading chat...</div>
+<div id="chat-inputs">
+<input type="text" id="chat-name" placeholder="Your name (optional)" />
+<input type="text" id="chat-message" placeholder="Type your message..." />
+<button onclick="sendChatMessage()">Send</button>
+</div>
+</div>
 <footer>
-
 <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
 <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
 <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
 <div id="clock">Loading time...</div>
 </footer>
 <p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-  <!-- --------------------------------------------------------------------------------------------------------- -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>LIVE CHAT</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #111; color: #000000; }
-    #chat { border: 1px solid #555; padding: 10px; height: 300px; overflow-y: scroll; background: #B9F9F1; }
-    .msg { margin: 5px 0; }
-    .msg span { color: #000000; }
-    input, button { padding: 8px; font-size: 16px; margin-top: 10px; background: #333; color: white; border: 1px solid #555; }
-  </style>
-</head>
-<body>
-  <h2>Live Chat</h2>
-  <div id="chat"></div>
-  <input id="name" placeholder="Your name (optional)" />
-  <br>
-  <input id="message" placeholder="Type your message..." />
-  <button onclick="sendMessage()">Send</button>
-
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
-      authDomain: "qpbd-chat.firebaseapp.com",
-      databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
-      projectId: "qpbd-chat",
-      storageBucket: "qpbd-chat.appspot.com",
-      messagingSenderId: "915896204829",
-      appId: "1:915896204829:web:985156253c14bbbf5d10f4",
-      measurementId: "G-J9JMWQVHXM"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const chatRef = ref(db, "guestbook");
-
-    // Send message
-    window.sendMessage = function () {
-      const name = document.getElementById("name").value.trim() || "Anonymous";
-      const message = document.getElementById("message").value.trim();
-      if (message === "") return;
-      push(chatRef, { name, message });
-      document.getElementById("message").value = "";
-    };
-
-    // Display live messages
-    const chatDiv = document.getElementById("chat");
-    onChildAdded(chatRef, (snapshot) => {
-      const data = snapshot.val();
-      const msgEl = document.createElement("div");
-      msgEl.classList.add("msg");
-      msgEl.innerHTML = `<span>${data.name}</span>: ${data.message}`;
-      chatDiv.appendChild(msgEl);
-      chatDiv.scrollTop = chatDiv.scrollHeight;
-    });
-  </script>
-</body>
-</html>
-  <!-- --------------------------------------------------------------------------------------------------------- -->
-
 </div>
-
-  <body>
-    <script>
-      alert("WELCOME TO qpbd");
-    </script>
-  </body>
-
-
 <div class="right-space"></div>
-
 <div id="gif-overlay">
 <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
 </div>
-
 <button id="gif-button">click me</button>
-
 <script>
 function updateClock() {
 const options = {
@@ -301,14 +260,11 @@ hour12: true
 const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
 document.getElementById('clock').textContent = 'My current time (usa/est)->  ' + timeString;
 }
-
 setInterval(updateClock, 1000);
 updateClock();
-
 const gifButton = document.getElementById('gif-button');
 const gifOverlay = document.getElementById('gif-overlay');
 const gifImage = document.getElementById('gif-image');
-
 gifButton.addEventListener('click', () => {
 gifImage.src = gifImage.src.split('?')[0] + '?t=' + new Date().getTime();
 gifOverlay.style.display = 'flex';
@@ -316,7 +272,6 @@ setTimeout(() => {
 gifOverlay.style.display = 'none';
 }, 3000);
 });
-
 window.addEventListener('scroll', () => {
 const scrollTop = window.scrollY || window.pageYOffset;
 const maxScroll = document.body.scrollHeight - window.innerHeight;
@@ -324,7 +279,40 @@ const opacity = Math.min(scrollTop / maxScroll, 1);
 document.querySelector('.bg1').style.opacity = 1 - opacity;
 document.querySelector('.bg2').style.opacity = opacity;
 });
+// FIREBASE CHAT
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+const firebaseConfig = {
+apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
+authDomain: "qpbd-chat.firebaseapp.com",
+databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
+projectId: "qpbd-chat",
+storageBucket: "qpbd-chat.appspot.com",
+messagingSenderId: "915896204829",
+appId: "1:915896204829:web:985156253c14bbbf5d10f4",
+measurementId: "G-J9JMWQVHXM"
+};
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const chatRef = ref(database, "guestbook");
+function sendChatMessage() {
+const nameInput = document.getElementById("chat-name");
+const messageInput = document.getElementById("chat-message");
+const name = nameInput.value.trim() || "Anonymous";
+const message = messageInput.value.trim();
+if (message === "") return;
+push(chatRef, { name, message });
+messageInput.value = "";
+}
+const chatMessagesDiv = document.getElementById("chat-messages");
+onChildAdded(chatRef, (snapshot) => {
+const data = snapshot.val();
+const msgEl = document.createElement("div");
+msgEl.classList.add("msg");
+msgEl.innerHTML = `<strong>${data.name}:</strong> ${data.message}`;
+chatMessagesDiv.appendChild(msgEl);
+chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+});
 </script>
 </body>
 </html>
-
