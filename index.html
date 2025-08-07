@@ -248,7 +248,7 @@ background-color: #277;
 <img id="gif-image" src="https://24.media.tumblr.com/tumblr_mby9dxCsUI1rp8v27o1_500.gif" />
 </div>
 <button id="gif-button">click me</button>
-<script>
+<script type="module">
 function updateClock() {
 const options = {
 timeZone: 'America/New_York',
@@ -304,6 +304,8 @@ if (message === "") return;
 push(chatRef, { name, message });
 messageInput.value = "";
 }
+// Expose sendChatMessage to global so onclick in HTML works
+window.sendChatMessage = sendChatMessage;
 const chatMessagesDiv = document.getElementById("chat-messages");
 onChildAdded(chatRef, (snapshot) => {
 const data = snapshot.val();
