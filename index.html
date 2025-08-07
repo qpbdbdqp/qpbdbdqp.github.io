@@ -198,13 +198,88 @@ background-color: rgba(0, 0, 0, 0.8);
 </div>
 </header>
 <footer>
-<p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+
 <p><a href="XXXXXXXXXXXXXXXX" target="_blank">🔗𝙾𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚁𝚎𝚜𝚞𝚖𝚎</a></p>
 <p>Contact: <a href="https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSPFdXZXBMPGjCXDVSMBgKTvHCgCwdvJfTWbXQWrqbKScjmwwsQrxksdpvgcmjQGpCrlHFDq">maxsmith33417@gmail.com</a></p>
 <p>Discord: <a href="https://discord.com/users/290180473378832385">qpbd</a></p>
 <div id="clock">Loading time...</div>
 </footer>
+<p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+  <!-- --------------------------------------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVE CHAT</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #111; color: #000000; }
+    #chat { border: 1px solid #555; padding: 10px; height: 300px; overflow-y: scroll; background: #B9F9F1; }
+    .msg { margin: 5px 0; }
+    .msg span { color: 7fffd4; }
+    input, button { padding: 8px; font-size: 16px; margin-top: 10px; background: #333; color: white; border: 1px solid #555; }
+  </style>
+</head>
+<body>
+  <h2>Live Chat</h2>
+  <div id="chat"></div>
+  <input id="name" placeholder="Your name (optional)" />
+  <br>
+  <input id="message" placeholder="Type your message..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXNrr5mcdW6FS3GsTsm43uNyDYFmpPULI",
+      authDomain: "qpbd-chat.firebaseapp.com",
+      databaseURL: "https://qpbd-chat-default-rtdb.firebaseio.com",
+      projectId: "qpbd-chat",
+      storageBucket: "qpbd-chat.appspot.com",
+      messagingSenderId: "915896204829",
+      appId: "1:915896204829:web:985156253c14bbbf5d10f4",
+      measurementId: "G-J9JMWQVHXM"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const chatRef = ref(db, "guestbook");
+
+    // Send message
+    window.sendMessage = function () {
+      const name = document.getElementById("name").value.trim() || "Anonymous";
+      const message = document.getElementById("message").value.trim();
+      if (message === "") return;
+      push(chatRef, { name, message });
+      document.getElementById("message").value = "";
+    };
+
+    // Display live messages
+    const chatDiv = document.getElementById("chat");
+    onChildAdded(chatRef, (snapshot) => {
+      const data = snapshot.val();
+      const msgEl = document.createElement("div");
+      msgEl.classList.add("msg");
+      msgEl.innerHTML = `<span>${data.name}</span>: ${data.message}`;
+      chatDiv.appendChild(msgEl);
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    });
+  </script>
+</body>
+</html>
+  <!-- --------------------------------------------------------------------------------------------------------- -->
+
 </div>
+
+  <body>
+    <script>
+      alert("WELCOME TO qpbd");
+    </script>
+  </body>
+
 
 <div class="right-space"></div>
 
@@ -252,3 +327,4 @@ document.querySelector('.bg2').style.opacity = opacity;
 </script>
 </body>
 </html>
+
